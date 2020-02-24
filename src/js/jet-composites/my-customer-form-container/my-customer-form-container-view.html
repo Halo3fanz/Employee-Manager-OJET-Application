@@ -9,14 +9,14 @@
     <oj-collapsible>
       <span slot = "header">
         <span>
-          <oj-bind-text value = "[[$current.data.empno]]"></oj-bind-text>
+          <oj-bind-text value = "[[$current.data.custno]]"></oj-bind-text>
         </span>
       </span>
       <my-employee-form 
           first-name="[[$current.data.name]]" 
           last-name="[[$current.data.lastname]]" 
-          hire-date="[[$current.data.hiredate]]" 
-          hire-salary="[[$current.data.hiresalary]]"> 
+          email="[[$current.data.email]]" 
+          phone-number="[[$current.data.number]]"> 
       </my-employee-form> 
     </oj-collapsible>
     <hr/>

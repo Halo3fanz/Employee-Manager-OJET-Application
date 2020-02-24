@@ -5,3 +5,44 @@
 <div class="oj-hybrid-padding">
   <h1>Customers Content Area</h1>
 </div>
+<div id="componentDemoContent" style="width: 1px; min-width: 100%;">
+  <oj-buttonset-one id="drinkset" value="{{activeLayout}}" chroming="half" display="icons"
+      on-value-changed="[[handleLayoutChange]]" aria-label="Choose layout view." class="oj-buttonset-width-auto">
+      <!-- ko foreach: layoutViewRadios -->
+      <oj-option data-bind="attr: {value: id}">
+          <span slot="startIcon" data-bind="attr: {class: icon}"></span>
+          <span data-bind="text: id"></span>
+      </oj-option>
+      <!-- /ko -->
+  </oj-buttonset-one>
+  <oj-list-view id="listview" aria-label="list of customers" data='[[dataProvider]]' item.focusable="[[itemOnly]]" drill-mode="none">
+    <template slot="itemTemplate" data-oj-as="item">
+       <!-- template for items -->
+       <oj-bind-if test="[[item.leaf]]">
+        <span>
+            <oj-bind-text value="[[item.data.FIRST_NAME]]"></oj-bind-text>
+        </span><span> </span>
+        <span style="font-weight:bold">
+            <oj-bind-text value="[[item.data.LAST_NAME]]"></oj-bind-text>
+        </span>
+    </oj-bind-if>
+    <!-- template for groups -->
+    <oj-bind-if test="[[!item.leaf]]">
+        <oj-bind-if test="[[item.data.id != null]]">
+            <span>
+                <oj-bind-text value="[[item.data.EMAIL]]"></oj-bind-text>
+            </span>
+        </oj-bind-if>
+        <oj-bind-if test="[[item.data.id == null]]">
+            <span>
+                <oj-bind-text value="[[item.data]]"></oj-bind-text>
+            </span>
+        </oj-bind-if>
+      </oj-bind-if>
+    </template>
+  </oj-list-view>
+  <oj-indexer id="indexer" aria-label="indexer" aria-controls="listview" data="[[dataProvider]]"
+      class="demo-contacts-container-portrait oj-sm-flex-initial oj-flex-item">
+  </oj-indexer>
+</div>
+

@@ -1,0 +1,8 @@
+my-customer-form:not(.oj-complete){
+  visibility: hidden;
+}
+
+my-customer-form{
+	min-height: 50px;
+	width: 50px;
+}

@@ -1,3 +1,4 @@
 {
-    "employees": "http://localhost:3000/employees"
+    "employees": "http://localhost:3000/employees",
+    "customers": "http://localhost:3001/customers"
 }
